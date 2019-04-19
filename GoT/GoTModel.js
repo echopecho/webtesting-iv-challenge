@@ -6,7 +6,8 @@ module.exports = {
 };
 
 async function create(char) {
-  return db('GoT').insert(char);
+  const [id] = await db('GoT').insert(char);
+  return db('GoT').where({id}).first();
 };
 
 async function destroy() {
