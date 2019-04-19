@@ -5,8 +5,8 @@ module.exports = {
   destroy,
 };
 
-async function create() {
-  return null
+async function create(char) {
+  return db('GoT').insert(char);
 };
 
 async function destroy() {
