@@ -22,6 +22,17 @@ describe('the GoT Model', () => {
 
       expect(char.name).toBe('Beric Dondarrion');
       expect(char.id).toBe(1);
+    });
+  });
+
+  describe('the Destroy fn', () => {
+
+    it('should remove the character from the database', async () => {
+      const [id] = await db('GoT').insert({ name: 'Arya Stark' });
+      await GoT.destroy(id);
+
+      const char = await db('GoT');
+      expect(char.length).toBe(0);
     })
   })
 })
