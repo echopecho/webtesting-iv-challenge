@@ -10,6 +10,6 @@ async function create(char) {
   return db('GoT').where({id}).first();
 };
 
-async function destroy() {
-  return null
+async function destroy(id) {
+  return db('GoT').where({id}).del();
 }
