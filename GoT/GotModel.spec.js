@@ -15,6 +15,13 @@ describe('the GoT Model', () => {
       const char = await db('GoT');
       expect(char.length).toBe(1);
       expect(char[0].name).toBe('John Snow');
+    });
+
+    it('should return the new Char with an ID', async () => {
+      const char = await GoT.create({ name: 'Beric Dondarrion' });
+
+      expect(char.name).toBe('Beric Dondarrion');
+      expect(char.id).toBe(1);
     })
   })
 })
